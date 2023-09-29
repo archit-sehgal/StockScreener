@@ -1,5 +1,5 @@
 # StockScreener
-Stock screener project for Nifty 500 stock realtime prices and other details
+Stock screener project for Nifty 500 stock realtime prices and other details<br/>
 To use this project locally, you'll need to follow these steps. This project appears to be a web application built using Express.js for the server-side and React for the client-side. It fetches stock price and news data from external APIs and displays them on different routes. Here's how you can set it up and run it locally:
 
 Prerequisites:
