@@ -2,6 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const axios = require("axios");
+require('dotenv').config(); 
+
+const port = process.env.PORT;
+const rapidapi=process.env.rapidapi
+const RapidHost=process.env.RapidHost
+const newsurl=process.env.newsurl
 
 app.use(cors());
 
@@ -15,8 +21,8 @@ app.get("/", async (req, res) => {
             Identifier: symbol
         },
         headers: {
-            'X-RapidAPI-Key': '5fc595e612msh0c5c0a26d28fd1cp1a1a9ejsna02ab6b21bab',
-            'X-RapidAPI-Host': 'latest-stock-price.p.rapidapi.com'
+            'X-RapidAPI-Key': rapidapi,
+            'X-RapidAPI-Host': RapidHost
         }
     };
 
@@ -37,8 +43,8 @@ app.get("/help", async (req, res) => {
             Indices: 'NIFTY 500'
         },
         headers: {
-            'X-RapidAPI-Key': '5fc595e612msh0c5c0a26d28fd1cp1a1a9ejsna02ab6b21bab',
-            'X-RapidAPI-Host': 'latest-stock-price.p.rapidapi.com'
+            'X-RapidAPI-Key': rapidapi,
+            'X-RapidAPI-Host': RapidHost
         }
     };
 
@@ -68,8 +74,8 @@ app.get("/ss", async (req, res) => {
             Identifier: symbol
         },
         headers: {
-            'X-RapidAPI-Key': '5fc595e612msh0c5c0a26d28fd1cp1a1a9ejsna02ab6b21bab',
-            'X-RapidAPI-Host': 'latest-stock-price.p.rapidapi.com'
+            'X-RapidAPI-Key': rapidapi,
+            'X-RapidAPI-Host': RapidHost
         }
     };
 
@@ -86,7 +92,7 @@ app.get("/ss", async (req, res) => {
 // news section
 app.get("/topten", async (req, res) => {
     try {
-        const response = await axios.get("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=7c3d171d287e49969e51e9435c5f8518");
+        const response = await axios.get(newsurl);
         const articles = response.data.articles;
 
         const newsData = articles.map((article) => ({
@@ -104,6 +110,7 @@ app.get("/topten", async (req, res) => {
 });
 
 
-app.listen(3000, () => {
-    console.log("Server started on port 3000");
-});
+app.listen(port, () => {
+    console.log(`Server started on port: ${port}`);
+  });
+  
