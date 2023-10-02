@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Outlet } from 'react-router-dom';
-import Spinner from './Spinner';
+import Spinner from './spinner.jsx';
 
 function RouteTransitionLoader() {
   const [loading, setLoading] = useState(true); 
