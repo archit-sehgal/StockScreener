@@ -7,7 +7,7 @@ import SingleStock from './components/SingleStock';
 import Explore from './components/Explore';
 import TopTen from './components/TopTen';
 import Help from "./components/HelpData";
-import RouteTransitionLoader from './components/RouteTransitionLoader ';
+import RouteTransitionLoader from './components/RouteTransitionLoader';
 
 function App() {
   return (
